@@ -1,0 +1,11 @@
+Insurance
+4 customers
+
+Paying premium
+
+Jagged Array
+customer1 annually
+customer2 bi annually
+customer3 Quarterly
+customer4 monthly
+

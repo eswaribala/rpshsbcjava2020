@@ -1,0 +1,29 @@
+Exercise 1
+
+Income Tax
+Male
+
+>30L tax 30%
+20L-29L tax 20%
+
+10L-19L tax 10%
+Below 10L no Tax
+
+
+Female
+>30L tax 25%
+20L-29L tax 15%
+
+10L-19L tax 5%
+Below 10L no Tax
+
+
+Exercise 2
+
+Exercise Objective(s): Constants and literals, Loops
+
+Exercise: Write a program to declare a set of 5 words and reverse each word and arrange the resulting 
+words in alphabetical order and display the same.
+
+Recommended duration: 20Mins
+

@@ -1,0 +1,50 @@
+Lab Exercise No:25
+
+Exercise Objective(s):Overloading
+
+Exercise: Create a class called employee with the following data members
+1.	empName
+2.	empId
+3.	empAge
+4.	empdesgn
+5.	empLocation
+6.	empExpInYrs
+
+All these data members should be initialized using constructors. Use constructor overloading 
+and demonstrate by creating different employee objects with
+
+1.	Employee  name alone
+2.	Employee name and id
+3.	Employee name, id and age
+4.	Employee name, id and designation
+5.	Employee name, id, age and designation
+6.	Employee name, id, age and location
+7.	Employee name, id, age and experience
+8.	 Employee name, id, designation and experience
+9.	Employee name, id, designation, location and experience
+10.	Employee name, id, age, designation,  location and experience
+
+Recommended duration:20Mins
+
+Solution Guidance (if applicable): NA
+
+
+Exercise Objective(s):Construction of an object, this keyword, accessors(getters) and mutators(setters), 
+public and private access specifiers, instance and class member variables
+
+Exercise:Create a class called Student with the following details: RollNo, StudName, MarksInEng, 
+MarksInMaths and MarksInScience. Write getters and setters for the all variables. RollNo
+should be automatically generatedwhenever a newstudent is added.
+
+	     Create a class called Standard with 8 students’ details and write separate method for each of 
+the following tasks and invoke the same.
+1.	To display the entire roll no and the name of the students in the class in the ascending order of roll no.
+2.	To display the roll no and the name of the student who has got the highest percentage.
+3.	To display the roll no and the name of the student who scored highest mark 
+inmathematics.
+4.	To display the roll no and the name of the student in the ascending order of the total marks in mathematics and science alone.
+5.	To display the roll no, name, total marks, percentage and rank of all the students in the descending order of rank.
+
+Recommended duration:40Mins
+
+Solution Guidance (if applicable): NA

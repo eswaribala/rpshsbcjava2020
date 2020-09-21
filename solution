@@ -1,0 +1,10 @@
+int no = 1342;
+		
+		int gross = no/144;
+		int rem = no%144;
+		int dozen = rem/12;
+		int remDozen = rem%12;
+		
+		System.out.println(gross);
+		System.out.println(dozen);
+		System.out.println(remDozen);
