@@ -1,0 +1,9 @@
+public class AssertTest{
+private void m1(int i){
+assert i >= 0 : m2();
+System.out.println(i);}
+public void m2()     {
+System.out.println("The value must not be negative");}
+public static void main(String args[]) {
+AssertTest test = new AssertTest();
+test.m1(-10); 	}      }
