@@ -31,8 +31,7 @@ public class FileWriterDemo {
 			System.out.println("Enter DOB(02-12-1980)");
 			String dob=scanner.nextLine();			
 			customer.setDob(LocalDate.parse(dob, formatter));
-			customerBL.addCustomer(customer);
-			customerBL.displayAllCustomers();
+			customerBL.addCustomer(customer);			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

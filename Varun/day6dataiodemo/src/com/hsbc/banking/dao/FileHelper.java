@@ -8,18 +8,14 @@ import java.time.format.DateTimeFormatter;
 public class FileHelper {
 	
 	private static File file;
-	public static File createFile(String dirPath, String fileName) throws IOException
+	public static File createFile(String fileName) throws IOException
 	{
-		file=new File(dirPath);
-		//create directory
-		if(!file.exists())
-			file.mkdir();
 		
 		DateTimeFormatter formatter=DateTimeFormatter
 	             .ofPattern("dd-MM-yyyy_hh_mm_ss");	
 
 		//create file
-		file=new File(dirPath,LocalDateTime.now().format(formatter)+".csv");
+		file=new File(fileName + "_" + LocalDateTime.now().format(formatter)+".txt");
 		if(!file.exists())
 			file.createNewFile();
 		

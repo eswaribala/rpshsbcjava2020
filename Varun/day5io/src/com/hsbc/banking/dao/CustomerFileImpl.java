@@ -1,7 +1,14 @@
 package com.hsbc.banking.dao;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.LineNumberReader;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import com.hsbc.banking.exceptions.DOBException;
 import com.hsbc.banking.models.Customer;
@@ -13,13 +20,11 @@ public class CustomerFileImpl implements CustomerDao{
 	private BufferedWriter bufferedWriter;
 	private LineNumberReader lineNumberReader;
 	private FileReader fileReader;
-	private BufferedReader bufferedReader;
-
 	public CustomerFileImpl(String dirPath, String fileName) throws IOException
 	{
 		file=FileHelper.createFile(dirPath, fileName);
-		fileWriter = new FileWriter(file , true); // append mode
-		fileReader = new FileReader(file);
+		fileWriter=new FileWriter(file,true);//append mode
+		fileReader=new FileReader(file);
 	}
 	
 	
@@ -37,40 +42,62 @@ public class CustomerFileImpl implements CustomerDao{
 		else
 		{
 			bufferedWriter=new BufferedWriter(fileWriter);
-			bufferedWriter.write(String.valueOf(getNumberOfRows() + 1));
+			bufferedWriter.append(String.valueOf(customer.getCustomerId()));
 			bufferedWriter.append(",");
-			bufferedWriter.write(customer.getName());
+			bufferedWriter.append(customer.getName());
 			bufferedWriter.append(",");
-			bufferedWriter.write(customer.getDob().toString());
+			bufferedWriter.append(customer.getDob().toString());
 			bufferedWriter.newLine();
 			bufferedWriter.close();
 			
 			status=true;
 		}
-
+		
+		
+		
 		return status;
 	}
 
+
+	
 	@Override
-	public int getNumberOfRows() throws IOException {
-		lineNumberReader = new LineNumberReader(fileReader);
-		int count = 0;
-		String line;
-		while ((line = lineNumberReader.readLine())!=null){
-			count++;
-		}
+	public int getNoOfRows() throws IOException {
+		// TODO Auto-generated method stub
+		int count=0;
+		String line=null;
+		lineNumberReader=new LineNumberReader(fileReader);
+		while((line=lineNumberReader.readLine())!=null)
+				{
+			        count++;
+				}
 		lineNumberReader.close();
 		return count;
 	}
 
+
 	@Override
-	public void displayAllCustomers() throws IOException {
-		bufferedReader = new BufferedReader(fileReader);
-		String line = "";
-		while ((line = bufferedReader.readLine()) != null) {
-			// use comma as separator
-			String[] customerData = line.split(",");
-			System.out.println("Customer [CustomerID= " + customerData[0] + " , CustomerName=" + customerData[1] + ", CustomerDOB=" + customerData[2] + "]");
-		}
+	public Customer[] getAllCustomers() throws IOException {
+		// TODO Auto-generated method stub
+		Customer[] customerList=new Customer[getNoOfRows()];
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		Customer customer;
+		String line=null;
+		String[] customerData;
+		lineNumberReader=new LineNumberReader(fileReader);
+		int pos=0;
+		while((line=lineNumberReader.readLine())!=null)
+				{
+			        customer=new Customer();
+			        customerData=line.split(",");
+			        customer.setCustomerId(Long.parseLong(customerData[0]));
+			        customer.setName(customerData[1]);
+			        customer.setDob(LocalDate.parse(customerData[2], formatter));
+			        customerList[pos]=customer;
+			        pos++;
+				}
+		lineNumberReader.close();
+		
+		return customerList;
 	}
+
 }

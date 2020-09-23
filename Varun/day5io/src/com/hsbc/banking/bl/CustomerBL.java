@@ -7,6 +7,6 @@ import com.hsbc.banking.models.Customer;
 
 public interface CustomerBL {
 	boolean addCustomer(Customer customer) throws DOBException, IOException;
-	int getNumberOfRows() throws IOException;
-	void displayAllCustomers() throws IOException;
+	int getNoOfRows() throws IOException;
+	Customer[] getAllCustomers() throws IOException;
 }
