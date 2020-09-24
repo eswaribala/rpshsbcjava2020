@@ -1,10 +1,16 @@
 package com.hsbc.insurance.utility;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Random;
 
 import com.hsbc.insurance.bl.VehicleBL;
 import com.hsbc.insurance.bl.VehicleBLImpl;
+import com.hsbc.insurance.bl.VehicleSorter;
 import com.hsbc.insurance.exceptions.FileCreationException;
 import com.hsbc.insurance.exceptions.VehicleCreationException;
 import com.hsbc.insurance.exceptions.VehicleRetrievalException;
@@ -43,6 +49,7 @@ public class VehicleApp {
 			vehicle.setFuelType(Fuel.PETROL);
 		    vehicleList.add(vehicle);	  
 		}
+		
 		try {
 			System.out.println(vehicleBL.addVehicle(vehicleList));
 		} catch (VehicleCreationException e) {
@@ -53,25 +60,60 @@ public class VehicleApp {
 		
 	}
 	
-	private static void getAllVehicles() throws VehicleRetrievalException {
-		List<Vehicle> vehicleList = vehicleBL.getAllVehicles();
+	private static void getAllVehicles()
+	{
+		List<Vehicle> vehicleList=null;
 		try {
-			for(Vehicle vehicle : vehicleList)
+			
+			vehicleList=vehicleBL.getAllVehicles();
+			System.out.println("Before Sorting....");
+			for(Vehicle vehicle: vehicleList)
 			{
 				System.out.println(vehicle);
 			}
-			Collection.sort(vehicleList, new VehicleSorter());
+			
+			//sorting
+			Collections.sort(vehicleList,new VehicleSorter());
+			System.out.println("After Sorting....");
+			for(Vehicle vehicle: vehicleList)
+			{
+				System.out.println(vehicle);
+			}
+			
 		} catch (VehicleRetrievalException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	public static void sortVehiclesByPQ()
+	{
+		PriorityQueue<Vehicle> pq=new PriorityQueue<Vehicle>(new VehicleSorter());		
+		
+		try {
+			for(Vehicle vehicle: vehicleBL.getAllVehicles())
+			{
+				pq.offer(vehicle);
+			}
+		} catch (VehicleRetrievalException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("After Sorting....");
+		
+		while(!pq.isEmpty())
+			System.out.println(pq.poll());
+		
+		
+	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         //addVehicles();   
-		getAllVehicles();
+		//getAllVehicles();
+		sortVehiclesByPQ();
 	}
 
 }
