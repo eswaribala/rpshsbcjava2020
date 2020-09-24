@@ -1,0 +1,44 @@
+Step1
+
+Java File --> .java
+
+
+Step2
+
+Compile .java using javac compiler
+
+.class file as output --> byte code
+
+
+Step 3
+
+Java code Execution
+
+Byte code runs only in JVM environment
+
+Load class file to JVM env
+
+Order of loading
+
+Bootstrap --> jars 
+Extension --> jre/extension jar
+system  --> class path --> drivers, framework level jar
+user defined --> user defined class
+
+
+Step4
+
+Break the code into pieces
+
+heap,stack,method area,pc register, native area
+
+Step5
+execution engine process the byte code
+converts it into native code(0,1)---> machine level 
+
+
+
+
+
+
+
