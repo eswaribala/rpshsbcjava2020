@@ -1,9 +1,7 @@
 package com.hsbc.insurance.utility;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import com.hsbc.insurance.bl.VehicleBL;
 import com.hsbc.insurance.bl.VehicleBLImpl;
@@ -55,13 +53,14 @@ public class VehicleApp {
 		
 	}
 	
-	private static void getAllVehicles()
-	{
+	private static void getAllVehicles() throws VehicleRetrievalException {
+		List<Vehicle> vehicleList = vehicleBL.getAllVehicles();
 		try {
-			for(Vehicle vehicle:vehicleBL.getAllVehicles())
+			for(Vehicle vehicle : vehicleList)
 			{
 				System.out.println(vehicle);
 			}
+			Collection.sort(vehicleList, new VehicleSorter());
 		} catch (VehicleRetrievalException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

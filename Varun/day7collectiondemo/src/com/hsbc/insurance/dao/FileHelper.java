@@ -12,14 +12,13 @@ public class FileHelper {
 	private static ResourceBundle resourceBundle;
 	public static File createFile() throws IOException
 	{
-
-		//create file
-		//file=new File(fileName+"_"+LocalDateTime.now().format(formatter)+".txt");
-		resourceBundle  = ResourceBundle.getBundle("com/hsbc/insurance/resources/insurance");
-		file=new File(resourceBundle.getString("fileName"));
+		resourceBundle=ResourceBundle.getBundle("com/hsbc/insurance/"
+				+ "resources/insurance");	
+		
+		file=new File(resourceBundle.getString("filename"));
 		if(!file.exists())
 			file.createNewFile();
-
+		
 		
         return file; 	
 		
