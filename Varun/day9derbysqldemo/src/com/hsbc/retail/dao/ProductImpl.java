@@ -32,8 +32,18 @@ public class ProductImpl implements ProductDao{
 	private boolean status;
 	private ResourceBundle resourceBundle;
 	
+	
+	
 	public ProductImpl() 
 	{
+		// db conn test
+		/*
+		 * try { conn=DBHelper.getConnection(); System.out.println("DB Conn created"); }
+		 * catch (SQLException e) { // TODO Auto-generated catch block
+		 * //e.printStackTrace(); System.out.println(e.getMessage()); } finally { try {
+		 * conn.close(); } catch (SQLException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); } }
+		 */
 		
 		resourceBundle=ResourceBundle.getBundle("com/hsbc/retail/resources/db");
 	}
@@ -42,14 +52,18 @@ public class ProductImpl implements ProductDao{
 	public boolean addProduct(List<Product> products) throws SQLException {
 		// TODO Auto-generated method stub
 		//insert the product in to product
+		System.out.println(products.size());
 		conn=DBHelper.getConnection();
 		Apparel apparel=null;
 		FoodItems foodItems=null;
 		Electronics electronics=null;
+		pre=conn.prepareStatement(resourceBundle.getString("addproduct"));
+		apre=conn.prepareStatement(resourceBundle.getString("addapparel"));
+		fpre=conn.prepareStatement(resourceBundle.getString("addfooditems"));
+		epre=conn.prepareStatement(resourceBundle.getString("addelectronics"));
 		for(Product product:products)
-		{
+		{			
 			
-			pre=conn.prepareStatement(resourceBundle.getString("addproduct"));
 			pre.setLong(1, product.getItemCode());
 			pre.setString(2, product.getName());
 			pre.setInt(3, product.getQty());
@@ -58,7 +72,7 @@ public class ProductImpl implements ProductDao{
 			if(product instanceof Apparel)
 			{
 				apparel=(Apparel) product;
-				apre=conn.prepareStatement(resourceBundle.getString("addapparel"));
+				
 				apre.setLong(1, apparel.getItemCode());
 				apre.setString(2, apparel.getMaterialType().toString());
 				apre.setString(3, apparel.getSize().toString());
@@ -67,7 +81,7 @@ public class ProductImpl implements ProductDao{
 			if(product instanceof FoodItems)
 			{
 				foodItems=(FoodItems) product;
-				fpre=conn.prepareStatement(resourceBundle.getString("addfooditems"));
+				
 				fpre.setLong(1, foodItems.getItemCode());
 				
 				if(foodItems.getVegeterian().equals(VegeterianType.YES))
@@ -77,11 +91,12 @@ public class ProductImpl implements ProductDao{
 				
 				fpre.setDate(3, Date.valueOf(foodItems.getDateOfExpiry()));
 				fpre.setDate(4, Date.valueOf(foodItems.getDateOfManufacturing()));
+				
 			}
 			if(product instanceof Electronics)
 			{
 				electronics=(Electronics) product;
-				epre=conn.prepareStatement(resourceBundle.getString("addelectronics"));
+				
 				epre.setLong(1, electronics.getItemCode());
 				epre.setInt(2, electronics.getWarranty());
 				
@@ -173,7 +188,7 @@ public class ProductImpl implements ProductDao{
 		}
 		
 		
-		
+		conn.close();
 	
 		
 		return productList;

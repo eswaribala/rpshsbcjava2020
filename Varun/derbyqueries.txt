@@ -1,0 +1,16 @@
+create Product(Item_Code BIGINT,Name VARCHAR(100), Unit_Price INT,
+Qty INT, Constraint Item_Code_PK Primary Key(Item_Code));
+ 
+
+create table Food_Items(DOM DATE, DOE DATE, Vegeterian SMALLINT, Item_Code BIGINT,
+CONSTRAINT Item_Code_FK FOREIGN KEY(Item_Code) REFERENCES PRODUCT(Item_code) );
+
+create table Apparel(Size varchar(50), Material_Type varchar(50), Item_Code BIGINT,
+CONSTRAINT Item_Code_AFK FOREIGN KEY(Item_Code) REFERENCES PRODUCT(Item_code));
+
+create table Electronics(Warranty INT, Item_Code BIGINT,
+CONSTRAINT Item_Code_EFK FOREIGN KEY(Item_Code) REFERENCES PRODUCT(Item_code));
+
+----------------------------------------------------------------------------------
+
+create table Bank(Bank_Id int, Name varchar(100), Country varchar(100), CONSTRAINT Bank_Id_PK PRIMARY KEY(Bank_Id));
