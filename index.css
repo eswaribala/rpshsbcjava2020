@@ -24,7 +24,7 @@ header
 }
 .header-menu {
 
-    background-color:white;
+    background-color:black;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,3 +51,49 @@ footer
 }
 
 
+.content-menu {
+
+    width:100%;
+
+}
+.content-menu aside
+{
+    margin-top: 5%;
+    width:30%;
+    float: left;
+}
+.content-menu  aside button
+{
+    display: block;
+   font-size: x-large;
+    background-color: dodgerblue;
+    color: orange;
+    margin-bottom: 3%;
+    width:180px;
+}
+
+.content-menu nav
+{
+    width:90%;
+    margin-left: 10%;
+}
+.content-menu  nav ul
+{
+
+
+}
+nav ul li
+{
+    display: inline;
+    list-style: none;
+    margin-right: 3%;
+    font-size: x-large;
+    box-shadow: 2px 2px 2px 2px dodgerblue;
+    color:orange;
+}
+nav ul li a
+{
+
+    text-decoration: none;
+
+}
