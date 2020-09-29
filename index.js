@@ -2,23 +2,37 @@
 //event callback
 window.addEventListener('load',function()
 {
+    let content=document.querySelector("#content");
+    
+   let myAccount=document.querySelector("nav > ul > li:nth-child(3) > a")
+    myAccount.addEventListener('click',function()
+    {
+
+        countryAjaxFunction();
+        document.querySelector("#content div").style.display="block";
+    })
+
+
 
     let count = document.querySelector("aside").childElementCount;
+
     for(let i=1;i<=count;i++) {
         document.querySelector("aside > button:nth-child("+i+")")
             .addEventListener('click', function () {
             //alert(this.firstChild.nodeValue);
                 if(i==1)
                 {
+                   while(content.hasChildNodes())
+                      content.removeChild(content.firstChild);
                     //alert(this.firstChild.nodeValue);
-                    ajaxFunction();
+                    bookAjaxFunction();
                 }
         })
     }
 })
 
 //ajax function
-function ajaxFunction(){
+function bookAjaxFunction(){
     let ajaxRequest;
     try{
         ajaxRequest = new XMLHttpRequest();
@@ -72,9 +86,40 @@ function ajaxFunction(){
     }
 
     ajaxRequest.open("GET",
-        "https://www.googleapis.com/books/v1/volumes?q=corejava",
+        "https://www.googleapis.com/books/v1/volumes?q=springboot",
         true);
     ajaxRequest.send(null);
 }
 
 
+function countryAjaxFunction(){
+    let ajaxRequest;
+    try{
+        ajaxRequest = new XMLHttpRequest();
+    } catch (e){
+        try{
+            ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP3.0"); }
+        catch (e){alert("Your browser broke!");
+            return false;
+        }
+    }
+
+    ajaxRequest.onreadystatechange = function(){
+        if(ajaxRequest.readyState == 4 && ajaxRequest.status == 200){
+            let response=JSON.parse(ajaxRequest.responseText);
+            let dataList=document.querySelector("#countryList");
+            response.forEach(obj=>{
+               console.log(obj.name);
+               option=document.createElement("option");
+               text=document.createTextNode(obj.name);
+               option.appendChild(text);
+               dataList.appendChild(option);
+              })
+        }
+    }
+
+    ajaxRequest.open("GET",
+        "https://restcountries.eu/rest/v2/all",
+        true);
+    ajaxRequest.send(null);
+}
