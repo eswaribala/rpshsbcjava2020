@@ -182,6 +182,56 @@ function bookAjaxFunction(){
     ajaxRequest.send();
 }*/
 
+function giftAjaxFunction(){
+
+    let table=document.createElement('table');
+    let tr=document.createElement('tr');
+    let count=0;
+    for(count = 0; count < 8; count++){
+        if (count%4 == 0 && count != 0) {
+            table.appendChild(tr);
+            tr=document.createElement('tr');
+        }
+        td = document.createElement('td');
+        img = new Image();
+        // console.log("../resources/images/sports/"+count+".jpg");
+        img.src = "../resources/images/gifts/"+count+".jpg";
+        img.width = 100;
+        img.height = 100;
+        td.appendChild(img);
+        tr.appendChild(td);
+    }
+
+    table.appendChild(tr);
+    let content=document.querySelector("#content");
+    content.appendChild(table);
+}
+
+function clothesAjaxFunction(){
+
+    let table=document.createElement('table');
+    let tr=document.createElement('tr');
+    let count=0;
+    for(count = 0; count < 8; count++){
+        if (count%4 == 0 && count != 0) {
+            table.appendChild(tr);
+            tr=document.createElement('tr');
+        }
+        td = document.createElement('td');
+        img = new Image();
+        // console.log("../resources/images/sports/"+count+".jpg");
+        img.src = "../resources/images/clothes/"+count+".jpg";
+        img.width = 100;
+        img.height = 100;
+        td.appendChild(img);
+        tr.appendChild(td);
+    }
+
+    table.appendChild(tr);
+    let content=document.querySelector("#content");
+    content.appendChild(table);
+}
+
 function sportsAjaxFunction(){
 
     let table=document.createElement('table');
