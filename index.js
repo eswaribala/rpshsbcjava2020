@@ -2,6 +2,7 @@
 //event callback
 window.addEventListener('load',function()
 {
+
     let count = document.querySelector("aside").childElementCount;
     for(let i=1;i<=count;i++) {
         document.querySelector("aside > button:nth-child("+i+")")
@@ -31,6 +32,9 @@ function ajaxFunction(){
 
     ajaxRequest.onreadystatechange = function(){
         if(ajaxRequest.readyState == 4 && ajaxRequest.status == 200){
+
+            let table=document.createElement('table');
+            let tr=document.createElement('tr');
             //console.log(ajaxRequest.responseText);
             //convert json text to json object
             let response=JSON.parse(ajaxRequest.responseText);
@@ -38,9 +42,31 @@ function ajaxFunction(){
             //console.log(response.items);
             //read object by object
             //arrow function
+            let count=0;
             response.items.forEach(obj=>{
                 console.log(obj.volumeInfo.imageLinks.thumbnail);
+                if (count<4) {
+                    td = document.createElement('td');
+                    img = new Image();
+                    img.src = obj.volumeInfo.imageLinks.thumbnail;
+                    img.width = 100;
+                    img.height = 100;
+                    td.appendChild(img);
+                    tr.appendChild(td);
+                    count++;
+                }
+                else
+                {
+                   table.appendChild(tr);
+                    tr=document.createElement('tr');
+                    count=0;
+                }
             })
+
+            table.appendChild(tr);
+            let content=document.querySelector("#content");
+            content.appendChild(table);
+
 
         }
     }
