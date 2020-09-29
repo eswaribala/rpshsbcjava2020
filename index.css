@@ -1,9 +1,9 @@
 section
 {
     width:80%;
-    margin:8%;
-    margin-top:0%;
 
+    margin-top:0%;
+    margin-left: 5%;
 }
 
 header
@@ -24,7 +24,7 @@ header
 }
 .header-menu {
 
-    background-color:white;
+    background-color:black;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,13 +41,125 @@ header
     font-family: "Lucida Calligraphy"
 }
 
+
+
+.content-menu {
+
+    width:100%;
+
+}
+.content-menu aside
+{
+    margin-top: 5%;
+    width:30%;
+    float: left;
+}
+.content-menu  aside button
+{
+    display: block;
+   font-size: x-large;
+    background-color: dodgerblue;
+    color: orange;
+    margin-bottom: 3%;
+    width:180px;
+}
+
+.content-menu nav
+{
+    width:90%;
+    margin-left: 10%;
+}
+.content-menu  nav ul
+{
+
+
+}
+nav ul li
+{
+    display: inline;
+    list-style: none;
+    margin-right: 3%;
+    font-size: x-large;
+    box-shadow: 2px 2px 2px 2px dodgerblue;
+    color:orange;
+  
+}
+nav ul li a
+{
+
+    text-decoration: none;
+    color:orange;
+
+}
+footer ul
+{
+    width:60%;
+}
+footer ul li
+{
+    display: inline;
+    list-style: none;
+    margin-right: 1%;
+    font-size:small;
+    color:white;
+
+
+}
+footer ul li a
+{
+
+    text-decoration: none;
+    color:white;
+
+}
+footer h6
+{
+    font-size: x-small;
+    width:30%;
+}
+#content
+{
+    margin-left: 27%;
+
+
+}
 footer
 {
-    position: fixed;
-    margin-top: 20%;
-    width:80%;
+
+    margin-top: 1%;
+    width:100%;
     height:100px;
-    border:2px solid red;
+
 }
 
 
+td
+{
+  padding-right: 20px;
+  padding-bottom: 20px;
+
+}
+
+tr:nth-child(2n+1)
+{
+
+}
+#content div
+{
+    display: none;
+}
+
+#regForm
+{
+    width:80%;
+    background-color: azure;
+    border: 2px solid dodgerblue;
+}
+
+#regForm input
+{
+    width:30%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    border-radius: 15% 15% 15% 15%;
+}
