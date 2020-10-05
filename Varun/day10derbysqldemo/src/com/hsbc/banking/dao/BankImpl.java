@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 import com.hsbc.banking.helpers.DBHelper;
 import com.hsbc.banking.models.Bank;
 
-public class BankImpl implements BankDao{
+public classBankImpl implements BankDao{
 
 	private Connection conn;
 	private PreparedStatement pre;
