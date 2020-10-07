@@ -1,4 +1,4 @@
 package com.hsbc.banking.models;
 
-public class Customer {
+public interface Customer {
 }

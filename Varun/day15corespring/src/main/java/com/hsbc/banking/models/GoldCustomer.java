@@ -1,2 +1,4 @@
-package com.hsbc.banking.models;public class GoldCustomer {
+package com.hsbc.banking.models;
+
+public class GoldCustomer {
 }

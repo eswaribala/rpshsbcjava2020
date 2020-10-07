@@ -1,2 +1,5 @@
-package com.hsbc.banking.utility;public class StreamDemo {
+package com.hsbc.banking.utility;
+
+public class StreamDemo {
+	
 }
