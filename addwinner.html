@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <form  action="#" th:action="@{/winners}" method="post" th:object="${winner}">
+        
+       <input type="number" th:field="*{tennisId}" placeholder="Tennis Id"/><br />      
+       <input type="text" th:field="*{tournamentId}"  placeholder="Tournament Id"/><br />     
+       <input type="text" th:field="*{location}"  placeholder="Location"/><br />     
+       <input type="number" th:field="*{date}"  placeholder="Tournament Date"/><br />     
+       <input type="number" th:field="*{matchNo}" placeholder="Match No"/><br />     
+       <input type="text" th:field="*{winnerName}" placeholder="Winner Name"/><br />
+       <input type="submit" />
+        </form>
+
+</body>
+</html>
