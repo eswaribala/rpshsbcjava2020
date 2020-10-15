@@ -1,0 +1,40 @@
+<table>
+<thead>
+<tr>
+<th>
+Tennis Id
+</th>
+<th>
+Tournament Id
+</th>
+<th>
+Location
+</th>
+<th>
+Tournament Date
+</th>
+<th>
+Match No
+</th>
+<th>
+Winner Name
+</th>
+</tr>
+</thead>
+<tbody>
+
+                <tr th:each="winner : ${winnerList}">
+                    <td th:text="${winner.tennisId}"></td>
+                    <td th:text="${winner.tournamentId}"></td>
+                    <td th:text="${winner.location}"></td>
+                       <td th:text="${winner.date}"></td>
+                     <td th:text="${winner.matchNo}"></td>
+                      <td th:text="${winner.winnerName}"></td>
+                    
+                </tr>
+
+</tbody>
+
+
+
+</table>

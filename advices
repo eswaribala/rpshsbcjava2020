@@ -1,0 +1,22 @@
+//join point
+	@Before("allMethods()")
+	public void logBefore(JoinPoint joinPoint)
+	{
+		logger.info("Entering...."+joinPoint.getSignature().getDeclaringTypeName());
+		
+	}
+	
+	@After("args(name)")
+	public void logStringArguments(String name){
+		System.out.println("Running After Advice. String argument passed="+name);
+	}
+	
+	@AfterThrowing("within(com.hsbc.banking.models.Customer)")
+	public void logExceptions(JoinPoint joinPoint){
+		System.out.println("Exception thrown in Customer Method="+joinPoint.toString());
+	}
+	
+	@AfterReturning(pointcut="execution(* getName())", returning="returnString")
+	public void getNameReturningAdvice(String returnString){
+		System.out.println("getNameReturningAdvice executed. Returned String="+returnString);
+	}

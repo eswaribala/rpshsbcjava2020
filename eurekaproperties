@@ -1,0 +1,22 @@
+#standard port
+server.port=8761
+spring.application.name=HSBC-EUREKA-SERVER
+#no discovery
+eureka.client.fetch-registry=false
+#no self registration
+eureka.client.register-with-eureka=false
+#Location of DC
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
+
+
+
+
+
+#eureka properties
+#eureka client properties
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
+eureka.client.fetch-registry=false
+eureka.client.healthcheck.enabled=true
+eureka.client.register-with-eureka=true
+eureka.instance.lease-expiration-duration-in-seconds=2
+eureka.instance.lease-renewal-interval-in-seconds=1
