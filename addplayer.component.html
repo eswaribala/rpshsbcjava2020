@@ -1,0 +1,53 @@
+<form [formGroup]="playerGroup" (submit)="addPlayer()" class="addplayer-form">
+ <fieldset>
+  <mat-label class="label">Add Player</mat-label>
+  <mat-form-field>
+   <mat-placeholder>
+     <mat-icon>perm_identity</mat-icon>
+     Tennis Id
+   </mat-placeholder>
+   <input type="number" matInput [formControl]="tennisId">
+ </mat-form-field>
+
+  <mat-form-field>
+    <mat-placeholder>
+      <mat-icon>perm_identity</mat-icon>
+      Tournament Id
+    </mat-placeholder>
+    <input type="text" matInput [formControl]="tournamentId">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-placeholder>
+      <mat-icon>perm_identity</mat-icon>
+      Location
+    </mat-placeholder>
+    <input type="text" matInput [formControl]="location">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-placeholder>
+      <mat-icon>perm_identity</mat-icon>
+      Tournament Date
+    </mat-placeholder>
+    <input type="date" matInput [formControl]="date">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-placeholder>
+      <mat-icon>perm_identity</mat-icon>
+      Match No
+    </mat-placeholder>
+    <input type="number" matInput [formControl]="matchNo">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-placeholder>
+      <mat-icon>perm_identity</mat-icon>
+      Winner Name
+    </mat-placeholder>
+    <input type="text" matInput [formControl]="winnerName">
+  </mat-form-field>
+ <button mat-fab>Add</button>
+ </fieldset>
+</form>
+
