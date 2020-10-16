@@ -1,0 +1,44 @@
+<br/>
+<mat-table [dataSource]="tableSource" matSort id="contentToConvert">
+
+  <ng-container matColumnDef="tennisId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Tennis Id </mat-header-cell>
+    <mat-cell *matCellDef="let elem"> {{elem.tennisId}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="tournamentId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Tournament Id </mat-header-cell>
+    <mat-cell *matCellDef="let elem"> {{elem.tournamentId}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="location">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+    <mat-cell *matCellDef="let elem"> {{elem.location}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Tournament Date </mat-header-cell>
+    <mat-cell *matCellDef="let elem"> {{elem.date}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="matchNo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Match No </mat-header-cell>
+    <mat-cell *matCellDef="let elem"> {{elem.matchNo}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="winnerName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Winner Name </mat-header-cell>
+    <mat-cell *matCellDef="let elem"> {{elem.winnerName}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+
+
+
+
+
+
+
+
+
+
+
