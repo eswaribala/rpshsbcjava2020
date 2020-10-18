@@ -1,0 +1,194 @@
+Mock Test 2
+
+1)      ______ takes a string parameter that names the bean. 
+___________________________________________________________________
+2)      _______removes the need to specify almost anything in XML. 
+___________________________________________________________________
+3)
+Given the following Spring configuration file, what is the correct answer:
+<bean class="com.spring.service.MyServiceImpl">
+<property name="repository" ref="jpaDao"/>
+</bean>
+<bean class="com.spring.repository.JpaDao"/>
+1. The first declared bean MyServiceImpl is missing an id must be named myService
+2. The second declared bean JpaDao is missing an id must be named jpaDao
+3. Answers 1 and 2 are both rights
+4. Answers 1 and 2 are both wrong
+___________________________________________________________________
+4)
+Given the Spring configuration file, which are the correct statements?
+<bean class="com.spring.service.BankServiceImpl"
+p:bankName="NationalBank">
+</bean>
+1. The p namespace has to be declared
+2. Bean id is bankServiceImpl
+3. The BankServiceImpl references a NationalBank bean
+4. NationalBank is a scalar value
+___________________________________________________________________
+
+5)      Pointcut is a collection of _____.
+___________________________________________________________________
+6)       Spring AOP perfroms weaving at_____.
+___________________________________________________________________
+7)      ____ is the command used to create WAR files in maven.
+___________________________________________________________________
+8)      Autowired annotations can be applied on____,____ and ____.
+___________________________________________________________________
+9.How could you externalize constants from a Spring configuration file or a Spring annotation into a
+.properties file? Select one or more answers
+1. By using the <util:constant /> tag
+2. By declaring the ConstantPlaceholderConfigurer bean post processor
+3. By using the <context:property-placeholder /> tag
+4. By using the c: namespace
+___________________________________________________________________
+10.
+
+What statement is not correct in live environment? Select a unique answer.
+1. Constuctor and properties autowiring in the same bean are not compatible
+2. A bean should have a default or a no-args constructor
+3. The <constructor-arg> tag could take type, name and index to reduce ambiguity
+4. None of the above
+5. All of the above
+___________________________________________________________________
+11.
+
+What are the right affirmations about the @PostConstruct, @Resource and the @PreDestroy
+annotations?
+1. Those annotations are specified in the JSR-250
+2. The Spring Framework embedded those annotation
+3. The <context:component-scan> tag enable them
+4. The <context:annotation-config > tag enable them
+5. Declaring the CommonAnnotationBeanPostProcessor enable them
+___________________________________________________________________
+12.
+What is/are typically case(s) where you usually need to manually instanciated an ApplicationContext?
+1. In a web application
+2. In an integration test running with the SpringJUnit4ClassRunner
+3. In a standalone application started with a main method
+4. None of the above
+___________________________________________________________________
+13.
+
+Select the right statement about referring a Spring configuration file inside the package
+com.example.myapp in the below example?
+ApplicationContext context = new
+ClassPathXmlApplicationContext("classpath:/com.example.myapp.config.xml");
+1. The classpath: prefix could be omit
+2. Package name with dot is not well formatted using the dot character
+3. The slash character preceding com.example could be omit
+4. All of the above
+5. None of the above
+___________________________________________________________________
+14.
+How to auto-inject into a field a bean by its name? Select one or more response.
+1. With the name attribute of the @Autowired annotation
+2. By using the single @Qualifier annotation
+3. By using both the @Autowired and the @Qualifier spring annotations
+4. By using the @Autowired annotation and naming the field with the bean name
+___________________________________________________________________
+15.
+
+Select one or many correct answers about spring bean life cycle.
+1. The method annoted with @PostConstruct is called after bean instantiation and before
+properties setting of the bean
+2. The method @PreDestroy of a prototype bean is called when the bean is garbage collected
+3. The init() method declared in the init-method attribute of a bean is called before the
+afterPropertiesSet callback method of the InitializingBean interface
+4. The method annotated with @PostConstruct is called before before the afterPropertiesSet
+callback method of the InitializingBean interface
+___________________________________________________________________
+
+16.
+
+What are the features of the XML <context: namespace? Select one or many answers.
+1. @Transactional annotation scanning
+2. @Aspect annotation detection enabling
+3. @Autowired annotation enabling
+4. @Component annotation scanning
+___________________________________________________________________
+17.
+
+Considering 2 classes AccountServiceImpl and ClientServiceImpl. Any of these 2 classes inherits from
+each other. What is the result of the pointcut expressions?
+execution(* *..AccountServiceImpl.update(..))
+&& execution(* *..ClientServiceImpl.update(..))
+1. Matches pubic update methods of the 2 classes, whatever the arguments
+2. Matches any update methods of the 2 classes , whatever the arguments and method
+visibility
+3. Matches any update methods of the 2 classes , with one more arguments and whatever
+method visibility
+4. No joint point is defined
+___________________________________________________________________
+18.
+
+Using the Spring AOP framework, what is the visibility of the method matches by the following join
+point?
+@Pointcut("execution(* *(..))")
+private void anyOperation() {};
+1. All methods, whereas there visibility
+2. All methods, except private method
+3. Protected and public methods
+4. Public methods
+___________________________________________________________________
+19.
+What is an after throwing advice? Select a unique answer.
+1. Advice that could throw an exception
+2. Advice to be executed if a method exits by throwing an exception
+3. Advice that executes before a join point
+4. Spring does not provide this type of advice
+___________________________________________________________________
+20.
+
+Select method’s signatures that match with the following pointcut:
+execution(* com.test.service..*.*(*))
+1. void com.test.service.MyServiceImpl#transfert(Money amount)
+2. void com.test.service.MyServiceImpl#transfert(Account account, Money amount)
+3. void com.test.service.account.MyServiceImpl#transfert(Money amount)
+4. void com.test.service.account.MyServiceImpl#transfert(Account account, Money amount)
+5. None of the above
+___________________________________________________________________
+21.
+
+What could not return a Spring MVC controller? Select a single answer.
+1. An absolute path to the view
+2. A logical view name
+3. A new JstlView
+4. void
+5. null value
+___________________________________________________________________
+22.
+
+Where do you cannot declare Spring MVC controller? Select one or more answers.
+1. In a Spring application context XML configuration file
+2. Into the web.xml file of the web application
+3. Into the java code by using annotations
+4. Into the JSP pages
+___________________________________________________________________
+23.
+
+What is the easiest method to write a unit test?
+1. void displayAccount(HttpServletRequest req, HttpServletResponse resp)
+throws ServletException, IOException
+2. void displayAccount(HttpServletRequest req, HttpSession Session)
+throws ServletException, IOException
+3. @RequestMapping("/displayAccount")
+String displayAccount(@RequestParam("accountId") int id, Model model)
+4. @RequestMapping("/displayAccount")
+String displayAccount(@PathVariable("accountId") int id, Model model)
+___________________________________________________________________
+24.
+
+What data access technology is supported by the Spring framework? Select one or more answers.
+1. JDBC
+2. NoSQL
+3. Hibernate
+4. JPA
+___________________________________________________________________
+25.
+
+What are the unique correct answers about Spring AOP support?
+1. An advice could proxied a constructor’s class
+2. A point cut could select methods that have a custom annotation
+3. Static initialization code could be targeted by a point cut
+4. Combination of pointcuts by &&, || and the ! operators is not supported
+___________________________________________________________________
