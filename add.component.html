@@ -1,0 +1,105 @@
+<form [formGroup]="foodItemGroup" (submit)="addFoodItem()" class="foodItem-form">
+  <fieldset>
+    <mat-label class="label">Add FoodItem</mat-label>
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>perm_identity</mat-icon>
+        Item Code
+      </mat-placeholder>
+      <input type="number" matInput [formControl]="itemCode">
+      <div [hidden]="itemCode.valid" class="validation">
+        <div [hidden]="!itemCode.hasError('required')">
+          Item Code is required.
+        </div>
+      </div>
+
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>account_tree</mat-icon>
+        Name
+      </mat-placeholder>
+      <input type="text" matInput [formControl]="name">
+      <div [hidden]="name.valid" class="validation">
+        <div [hidden]="!name.hasError('required')">
+          Name Id is required.
+        </div>
+        <div [hidden]="!name.hasError('pattern')">
+          Not matching pattern</div>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>location_on</mat-icon>
+        Quantity
+      </mat-placeholder>
+      <input type="text" matInput [formControl]="qty">
+      <div [hidden]="qty.valid" class="validation">
+        <div [hidden]="!qty.hasError('required')">
+          Qty is required.
+        </div>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>location_on</mat-icon>
+        Unit Price
+      </mat-placeholder>
+      <input type="text" matInput [formControl]="unitPrice">
+      <div [hidden]="unitPrice.valid" class="validation">
+        <div [hidden]="!unitPrice.hasError('required')">
+          Unit Price is required.
+        </div>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>today</mat-icon>
+        Date of Manufacturing
+      </mat-placeholder>
+      <input type="date" matInput [formControl]="dateOfManufacturing">
+      <div [hidden]="dateOfManufacturing.valid" class="validation">
+        <div [hidden]="!dateOfManufacturing.hasError('required')">
+          Date is required.
+        </div>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>analytics</mat-icon>
+        Date of Expiry
+      </mat-placeholder>
+      <input type="date" matInput [formControl]="dateOfExpiry">
+      <div [hidden]="dateOfExpiry.valid" class="validation">
+        <div [hidden]="!dateOfExpiry.hasError('required')">
+          Date of Expiry is required.
+        </div>
+
+      </div>
+    </mat-form-field>
+    <mat-form-field *ngIf="type?.length>0">
+      <mat-placeholder>
+        Select Veg/Non Veg
+      </mat-placeholder>
+      <mat-select (selectionChange)="typeChanged()"
+                  [(ngModel)]="selectedType" [ngModelOptions]="{standalone: true}">
+        <mat-option  *ngFor="let obj of type"
+                     value="{{obj}}">
+          {{obj}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="submit" mat-fab [disabled]="!foodItemGroup.valid">
+      <mat-icon>lock</mat-icon>
+    </button>
+    <button mat-fab type="reset" color="warn"
+            [disabled]="!foodItemGroup.valid" >
+      <mat-icon>lock_open</mat-icon>
+    </button>
+  </fieldset>
+</form>
+
+

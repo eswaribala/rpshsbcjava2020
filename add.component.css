@@ -1,0 +1,40 @@
+.foodItem-form {
+
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 0%;
+  color:navy;
+  overflow-scrolling: auto;
+}
+
+.foodItem-form fieldset
+{
+  background-color: lightskyblue;
+  border:2px solid navy;
+  color:navy;
+}
+
+
+.mat-form-field
+{
+  width:90%;
+  margin-left: 5%;
+}
+
+.label
+{
+  font-weight: bold;
+  font-size: x-large;
+  margin-left: 33%;
+}
+
+.mat-fab
+{
+  background-color:lightskyblue;
+  width:15%;
+  margin-left: 18%;
+  color:white;
+  font-weight: bold;
+  margin-bottom: 1%;
+  float:left;
+}
